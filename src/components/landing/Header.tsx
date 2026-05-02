@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import Icon from "@/components/ui/icon";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -29,8 +29,8 @@ const Header = () => {
       }`}
     >
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <a href="/" className="text-3xl font-bold tracking-tighter text-white">
-          SoundForge
+        <a href="/" className="text-3xl font-bold tracking-tighter text-white flex items-center gap-2">
+          <span className="text-green-400">Zero</span>Time
         </a>
         <div className="md:hidden">
           <Button
@@ -39,7 +39,7 @@ const Header = () => {
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="text-white hover:bg-white/10"
           >
-            {isMenuOpen ? <X /> : <Menu />}
+            {isMenuOpen ? <Icon name="X" /> : <Icon name="Menu" />}
           </Button>
         </div>
         <nav
@@ -51,23 +51,23 @@ const Header = () => {
             <li>
               <button
                 onClick={() => scrollToSection("licenses")}
-                className="text-white hover:text-purple-400 transition-colors"
+                className="text-white hover:text-green-400 transition-colors"
               >
-                Лицензии
+                Тарифы
               </button>
             </li>
             <li>
               <button
                 onClick={() => scrollToSection("about")}
-                className="text-white hover:text-purple-400 transition-colors"
+                className="text-white hover:text-green-400 transition-colors"
               >
-                Обо мне
+                О сервере
               </button>
             </li>
             <li>
               <button
                 onClick={() => scrollToSection("contact")}
-                className="text-white hover:text-purple-400 transition-colors"
+                className="text-white hover:text-green-400 transition-colors"
               >
                 Контакты
               </button>
@@ -76,11 +76,11 @@ const Header = () => {
         </nav>
         <Button
           variant="outline"
-          className="hidden md:block border-white/20 text-white hover:bg-white/10"
+          className="hidden md:block border-green-400/50 text-green-400 hover:bg-green-400/10 hover:border-green-400"
           asChild
         >
           <a href="#" target="_blank" rel="noopener noreferrer">
-            BeatStars
+            Играть сейчас
           </a>
         </Button>
       </div>

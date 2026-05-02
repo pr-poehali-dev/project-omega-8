@@ -40,12 +40,10 @@ const ContactSection = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Симуляция отправки
     await new Promise((resolve) => setTimeout(resolve, 2000));
     console.log("Форма отправлена:", formData);
     setIsSubmitting(false);
     setIsSubmitted(true);
-    // Сброс формы через 3 секунды
     setTimeout(() => {
       setIsSubmitted(false);
       setFormData({ name: "", email: "", message: "" });
@@ -55,7 +53,7 @@ const ContactSection = () => {
   return (
     <section id="contact" ref={ref} className="py-20 bg-zinc-900 relative overflow-hidden">
       <div
-        className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:40px_40px]"
+        className="absolute inset-0 bg-[linear-gradient(rgba(74,222,128,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(74,222,128,0.03)_1px,transparent_1px)] bg-[size:40px_40px]"
         style={{ backgroundPosition: "0 0, 0 0" }}
       />
       <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 to-transparent" />
@@ -64,9 +62,10 @@ const ContactSection = () => {
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
         }`}
       >
-        <h2 className="text-5xl font-bold mb-10 text-center text-zinc-200">Связаться со мной</h2>
+        <h2 className="text-5xl font-bold mb-4 text-center text-zinc-200">Связаться с нами</h2>
+        <p className="text-center text-zinc-400 mb-10">Есть вопросы? Напишите — ответим быстро!</p>
         <div
-          className={`max-w-md mx-auto bg-black/50 backdrop-blur-lg rounded-lg p-8 shadow-2xl border border-white/10 transition-all duration-500 delay-200 ${
+          className={`max-w-md mx-auto bg-black/50 backdrop-blur-lg rounded-lg p-8 shadow-2xl border border-green-400/10 transition-all duration-500 delay-200 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
           }`}
         >
@@ -75,11 +74,11 @@ const ContactSection = () => {
               <Input
                 type="text"
                 name="name"
-                placeholder="Ваше имя"
+                placeholder="Ваш ник в Minecraft"
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="bg-white/5 border-zinc-700 text-zinc-200 placeholder-zinc-500"
+                className="bg-white/5 border-zinc-700 text-zinc-200 placeholder-zinc-500 focus:border-green-400"
               />
             </div>
             <div className="mb-4">
@@ -90,22 +89,22 @@ const ContactSection = () => {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="bg-white/5 border-zinc-700 text-zinc-200 placeholder-zinc-500"
+                className="bg-white/5 border-zinc-700 text-zinc-200 placeholder-zinc-500 focus:border-green-400"
               />
             </div>
             <div className="mb-4">
               <Textarea
                 name="message"
-                placeholder="Ваше сообщение"
+                placeholder="Ваш вопрос или предложение..."
                 value={formData.message}
                 onChange={handleChange}
                 required
-                className="bg-white/5 border-zinc-700 text-zinc-200 placeholder-zinc-500 min-h-[120px]"
+                className="bg-white/5 border-zinc-700 text-zinc-200 placeholder-zinc-500 min-h-[120px] focus:border-green-400"
               />
             </div>
             <Button
               type="submit"
-              className="w-full bg-white text-black hover:bg-zinc-200 transition-colors relative overflow-hidden group"
+              className="w-full bg-green-400 text-black hover:bg-green-300 transition-colors relative overflow-hidden group font-bold"
               disabled={isSubmitting || isSubmitted}
             >
               <span className="relative z-10 flex items-center justify-center">

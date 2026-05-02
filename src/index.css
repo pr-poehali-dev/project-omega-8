@@ -92,9 +92,16 @@
 
 @keyframes glow {
   from {
-    box-shadow: 0 0 0px white;
+    box-shadow: 0 0 0px #4ade80;
   }
   to {
-    box-shadow: 0 0 20px white;
+    box-shadow: 0 0 24px #4ade80;
   }
+}
+
+/* Minecraft pixel border effect */
+.mc-border {
+  image-rendering: pixelated;
+  border: 2px solid #4ade80;
+  box-shadow: 0 0 12px rgba(74, 222, 128, 0.3);
 }
